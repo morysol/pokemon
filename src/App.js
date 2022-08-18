@@ -1,6 +1,14 @@
 // import logo from "./logo.svg";
 import { Component } from "react";
 import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+
+//
+import PokemonForm from "./components/PokemonForm";
+import PokemonInfo from "./components/PokemonInfo";
+import { Box } from "./components/Box";
+// import { flex } from "styled-system";
 
 // original
 // function App() {
@@ -10,22 +18,38 @@ import "./App.css";
 // export default App;
 
 export default class App extends Component {
-  state = { pokemon: null, loading: false };
+  state = {
+    pokemonName: "",
+  };
 
-  componentDidMount() {
-    this.setState({ loading: true });
-    fetch("https://pokeapi.co/api/v2/pokemon/ditto")
-      .then((result) => result.json())
-      .then((pokemon) => this.setState({ pokemon }))
-      .finally(this.setState({ loading: false }));
-  }
+  handleFormSubmit = (pokemonName) => {
+    this.setState({ pokemonName });
+  };
+
   render() {
-    const pokemon = this.state.pokemon;
+    // console.log(this.props);
     return (
-      <div className="App">
-        {this.state.loading && <h1>Загрузка</h1>}
-        {pokemon && <div>{pokemon.name}</div>}
-      </div>
+      <Box
+        bg="text"
+        color="accent"
+        p={4}
+        display="flex"
+        width={2} // "33vw"
+        height={3}
+        m="auto"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <div className="App">
+          {/* {this.state.loading && <h1>Загрузка</h1>}
+        {pokemon && <div>{pokemon.name}</div>} */}
+          <PokemonForm onSubmit={this.handleFormSubmit} />
+          <PokemonInfo pokemonName={this.state.pokemonName} />
+          <ToastContainer autoClose={3000} />
+        </div>
+      </Box>
     );
   }
 }
+
+// ErrorInfo
