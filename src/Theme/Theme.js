@@ -39,5 +39,5 @@ export const theme = {
     normal: "4px",
     round: "50%",
   },
-  sizes: [768, 1200, "33vw", "calc(100vh - 80px)"],
+  sizes: [768, 1200, "66vw", "calc(100vh - 80px)"],
 };
