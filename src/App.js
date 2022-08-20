@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import PokemonForm from "./components/PokemonForm";
 import PokemonInfo from "./components/PokemonInfo";
 import { Box } from "./components/Box";
+// import { TestHook } from "./components/TestHook";
 // import { flex } from "styled-system";
 
 // original
@@ -34,11 +35,14 @@ export default class App extends Component {
         color="accent"
         p={4}
         display="flex"
-        width={2} // "33vw"
+        width={2} //
         height={3}
         m="auto"
         alignItems="center"
         justifyContent="center"
+        position="absolute"
+        top="50%"
+        left="50%"
       >
         <div className="App">
           {/* {this.state.loading && <h1>Загрузка</h1>}
@@ -46,6 +50,7 @@ export default class App extends Component {
           <PokemonForm onSubmit={this.handleFormSubmit} />
           <PokemonInfo pokemonName={this.state.pokemonName} />
           {/* <ToastContainer autoClose={3000} /> */}
+          {/* <TestHook /> */}
         </div>
       </Box>
     );

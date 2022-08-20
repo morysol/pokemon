@@ -24,7 +24,7 @@ const PokemonFormStyled = styled(Form)`
 `;
 
 export default class PokemonForm extends Component {
-  state = { ...INITIAL_STATE };
+  // state = { ...INITIAL_STATE };
 
   // handleNameChange = (event) => {
   //   this.setState({ pokemonName: event.currentTarget.value.toLowerCase() });
@@ -67,7 +67,7 @@ export default class PokemonForm extends Component {
 
     values.pokemonName && this.props.onSubmit(values.pokemonName);
     // this.props.onSubmit(this.state.pokemonName);
-    this.setState(INITIAL_STATE);
+    // this.setState(INITIAL_STATE);
 
     actions.resetForm();
   };
@@ -79,7 +79,7 @@ export default class PokemonForm extends Component {
         validationSchema={pokemonSchema}
         onSubmit={this.handleSubmitFormik}
       >
-        <PokemonFormStyled>
+        <PokemonFormStyled autoComplete="off">
           <Field
             type="text"
             name="pokemonName"
